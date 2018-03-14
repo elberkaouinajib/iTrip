@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Voyage" table="voyage">
+    <indexes>
+      <index name="moneypot_voyage" columns="moneypot_voyage"/>
+      <index name="location_voyage" columns="location_voyage"/>
+      <index name="agenda_voyage" columns="agenda_voyage"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nomVoyage" type="string" column="nom_voyage" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="descritpionVoyage" type="text" column="descritpion_voyage" length="65535" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="moneypotVoyage" type="integer" column="moneypot_voyage" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="locationVoyage" type="integer" column="location_voyage" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="isactifVoyage" type="boolean" column="isactif_voyage" nullable="true"/>
+    <field name="agendaVoyage" type="integer" column="agenda_voyage" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

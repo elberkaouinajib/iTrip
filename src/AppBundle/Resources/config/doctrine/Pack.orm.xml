@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Pack" table="pack">
+    <indexes>
+      <index name="location_Pack" columns="location_Pack"/>
+      <index name="partenaire_Pack" columns="partenaire_Pack"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="locationPack" type="integer" column="location_Pack" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="partenairePack" type="integer" column="partenaire_Pack" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="datedebutPack" type="date" column="dateDebut_Pack" nullable="true"/>
+    <field name="datefinPack" type="date" column="dateFin_Pack" nullable="true"/>
+    <field name="prixPack" type="float" column="prix_Pack" precision="10" scale="0" nullable="true"/>
+    <field name="nombrepersonPack" type="integer" column="nombrePerson_Pack" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="nomPack" type="integer" column="nom_Pack" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="lienPack" type="string" column="lien_Pack" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="descriptionPack" type="text" column="description_Pack" length="65535" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

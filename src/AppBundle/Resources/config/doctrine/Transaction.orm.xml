@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Transaction" table="transaction">
+    <indexes>
+      <index name="moneypot_Transaction" columns="moneypot_Transaction"/>
+      <index name="utilisateur_Transaction" columns="utilisateur_Transaction"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="moneypotTransaction" type="integer" column="moneypot_Transaction" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="utilisateurTransaction" type="integer" column="utilisateur_Transaction" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="dateTransaction" type="datetime" column="date_Transaction" nullable="true"/>
+    <field name="valeurTransaction" type="float" column="valeur_Transaction" precision="10" scale="0" nullable="true"/>
+  </entity>
+</doctrine-mapping>

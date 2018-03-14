@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\ActiviteAgenda" table="activite_agenda">
+    <indexes>
+      <index name="activite_activite_agenda" columns="activite_activite_agenda"/>
+      <index name="utilisateur_activite_agenda" columns="utilisateur_activite_agenda"/>
+      <index name="agenda_activite_agenda" columns="agenda_activite_agenda"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="activiteActiviteAgenda" type="integer" column="activite_activite_agenda" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="utilisateurActiviteAgenda" type="integer" column="utilisateur_activite_agenda" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="agendaActiviteAgenda" type="integer" column="agenda_activite_agenda" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>
