@@ -176,296 +176,235 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        elseif (0 === strpos($pathinfo, '/activite')) {
-            if (0 === strpos($pathinfo, '/activites')) {
-                // api_activites_get_collection
-                if (preg_match('#^/activites(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('GET' !== $canonicalMethod) {
-                        $allow[] = 'GET';
-                        goto not_api_activites_get_collection;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activites_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Activite',  '_api_collection_operation_name' => 'get',));
+        elseif (0 === strpos($pathinfo, '/transactions')) {
+            // api_transactions_get_collection
+            if (preg_match('#^/transactions(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_api_transactions_get_collection;
                 }
-                not_api_activites_get_collection:
 
-                // api_activites_post_collection
-                if (preg_match('#^/activites(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('POST' !== $canonicalMethod) {
-                        $allow[] = 'POST';
-                        goto not_api_activites_post_collection;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activites_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Activite',  '_api_collection_operation_name' => 'post',));
-                }
-                not_api_activites_post_collection:
-
-                // api_activites_get_item
-                if (preg_match('#^/activites/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('GET' !== $canonicalMethod) {
-                        $allow[] = 'GET';
-                        goto not_api_activites_get_item;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activites_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Activite',  '_api_item_operation_name' => 'get',));
-                }
-                not_api_activites_get_item:
-
-                // api_activites_put_item
-                if (preg_match('#^/activites/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('PUT' !== $canonicalMethod) {
-                        $allow[] = 'PUT';
-                        goto not_api_activites_put_item;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activites_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Activite',  '_api_item_operation_name' => 'put',));
-                }
-                not_api_activites_put_item:
-
-                // api_activites_delete_item
-                if (preg_match('#^/activites/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('DELETE' !== $canonicalMethod) {
-                        $allow[] = 'DELETE';
-                        goto not_api_activites_delete_item;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activites_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Activite',  '_api_item_operation_name' => 'delete',));
-                }
-                not_api_activites_delete_item:
-
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_transactions_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Transaction',  '_api_collection_operation_name' => 'get',));
             }
+            not_api_transactions_get_collection:
 
-            elseif (0 === strpos($pathinfo, '/activite_agendas')) {
-                // api_activite_agendas_get_collection
-                if (preg_match('#^/activite_agendas(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('GET' !== $canonicalMethod) {
-                        $allow[] = 'GET';
-                        goto not_api_activite_agendas_get_collection;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_agendas_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActiviteAgenda',  '_api_collection_operation_name' => 'get',));
+            // api_transactions_post_collection
+            if (preg_match('#^/transactions(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                if ('POST' !== $canonicalMethod) {
+                    $allow[] = 'POST';
+                    goto not_api_transactions_post_collection;
                 }
-                not_api_activite_agendas_get_collection:
 
-                // api_activite_agendas_post_collection
-                if (preg_match('#^/activite_agendas(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('POST' !== $canonicalMethod) {
-                        $allow[] = 'POST';
-                        goto not_api_activite_agendas_post_collection;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_agendas_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActiviteAgenda',  '_api_collection_operation_name' => 'post',));
-                }
-                not_api_activite_agendas_post_collection:
-
-                // api_activite_agendas_get_item
-                if (preg_match('#^/activite_agendas/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('GET' !== $canonicalMethod) {
-                        $allow[] = 'GET';
-                        goto not_api_activite_agendas_get_item;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_agendas_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActiviteAgenda',  '_api_item_operation_name' => 'get',));
-                }
-                not_api_activite_agendas_get_item:
-
-                // api_activite_agendas_put_item
-                if (preg_match('#^/activite_agendas/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('PUT' !== $canonicalMethod) {
-                        $allow[] = 'PUT';
-                        goto not_api_activite_agendas_put_item;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_agendas_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActiviteAgenda',  '_api_item_operation_name' => 'put',));
-                }
-                not_api_activite_agendas_put_item:
-
-                // api_activite_agendas_delete_item
-                if (preg_match('#^/activite_agendas/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('DELETE' !== $canonicalMethod) {
-                        $allow[] = 'DELETE';
-                        goto not_api_activite_agendas_delete_item;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_agendas_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActiviteAgenda',  '_api_item_operation_name' => 'delete',));
-                }
-                not_api_activite_agendas_delete_item:
-
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_transactions_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Transaction',  '_api_collection_operation_name' => 'post',));
             }
+            not_api_transactions_post_collection:
 
-            elseif (0 === strpos($pathinfo, '/activite_packs')) {
-                // api_activite_packs_get_collection
-                if (preg_match('#^/activite_packs(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('GET' !== $canonicalMethod) {
-                        $allow[] = 'GET';
-                        goto not_api_activite_packs_get_collection;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_packs_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActivitePack',  '_api_collection_operation_name' => 'get',));
+            // api_transactions_get_item
+            if (preg_match('#^/transactions/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_api_transactions_get_item;
                 }
-                not_api_activite_packs_get_collection:
 
-                // api_activite_packs_post_collection
-                if (preg_match('#^/activite_packs(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('POST' !== $canonicalMethod) {
-                        $allow[] = 'POST';
-                        goto not_api_activite_packs_post_collection;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_packs_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActivitePack',  '_api_collection_operation_name' => 'post',));
-                }
-                not_api_activite_packs_post_collection:
-
-                // api_activite_packs_get_item
-                if (preg_match('#^/activite_packs/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('GET' !== $canonicalMethod) {
-                        $allow[] = 'GET';
-                        goto not_api_activite_packs_get_item;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_packs_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActivitePack',  '_api_item_operation_name' => 'get',));
-                }
-                not_api_activite_packs_get_item:
-
-                // api_activite_packs_put_item
-                if (preg_match('#^/activite_packs/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('PUT' !== $canonicalMethod) {
-                        $allow[] = 'PUT';
-                        goto not_api_activite_packs_put_item;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_packs_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActivitePack',  '_api_item_operation_name' => 'put',));
-                }
-                not_api_activite_packs_put_item:
-
-                // api_activite_packs_delete_item
-                if (preg_match('#^/activite_packs/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                    if ('DELETE' !== $canonicalMethod) {
-                        $allow[] = 'DELETE';
-                        goto not_api_activite_packs_delete_item;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_packs_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActivitePack',  '_api_item_operation_name' => 'delete',));
-                }
-                not_api_activite_packs_delete_item:
-
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_transactions_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Transaction',  '_api_item_operation_name' => 'get',));
             }
+            not_api_transactions_get_item:
+
+            // api_transactions_put_item
+            if (preg_match('#^/transactions/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                if ('PUT' !== $canonicalMethod) {
+                    $allow[] = 'PUT';
+                    goto not_api_transactions_put_item;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_transactions_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Transaction',  '_api_item_operation_name' => 'put',));
+            }
+            not_api_transactions_put_item:
+
+            // api_transactions_delete_item
+            if (preg_match('#^/transactions/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                if ('DELETE' !== $canonicalMethod) {
+                    $allow[] = 'DELETE';
+                    goto not_api_transactions_delete_item;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_transactions_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Transaction',  '_api_item_operation_name' => 'delete',));
+            }
+            not_api_transactions_delete_item:
 
         }
 
-        elseif (0 === strpos($pathinfo, '/agendas')) {
-            // api_agendas_get_collection
-            if (preg_match('#^/agendas(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+        elseif (0 === strpos($pathinfo, '/utilisateur_voyages')) {
+            // api_utilisateur_voyages_get_collection
+            if (preg_match('#^/utilisateur_voyages(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('GET' !== $canonicalMethod) {
                     $allow[] = 'GET';
-                    goto not_api_agendas_get_collection;
+                    goto not_api_utilisateur_voyages_get_collection;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_agendas_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Agenda',  '_api_collection_operation_name' => 'get',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateur_voyages_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\UtilisateurVoyage',  '_api_collection_operation_name' => 'get',));
             }
-            not_api_agendas_get_collection:
+            not_api_utilisateur_voyages_get_collection:
 
-            // api_agendas_post_collection
-            if (preg_match('#^/agendas(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_utilisateur_voyages_post_collection
+            if (preg_match('#^/utilisateur_voyages(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('POST' !== $canonicalMethod) {
                     $allow[] = 'POST';
-                    goto not_api_agendas_post_collection;
+                    goto not_api_utilisateur_voyages_post_collection;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_agendas_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Agenda',  '_api_collection_operation_name' => 'post',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateur_voyages_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\UtilisateurVoyage',  '_api_collection_operation_name' => 'post',));
             }
-            not_api_agendas_post_collection:
+            not_api_utilisateur_voyages_post_collection:
 
-            // api_agendas_get_item
-            if (preg_match('#^/agendas/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_utilisateur_voyages_get_item
+            if (preg_match('#^/utilisateur_voyages/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('GET' !== $canonicalMethod) {
                     $allow[] = 'GET';
-                    goto not_api_agendas_get_item;
+                    goto not_api_utilisateur_voyages_get_item;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_agendas_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Agenda',  '_api_item_operation_name' => 'get',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateur_voyages_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\UtilisateurVoyage',  '_api_item_operation_name' => 'get',));
             }
-            not_api_agendas_get_item:
+            not_api_utilisateur_voyages_get_item:
 
-            // api_agendas_put_item
-            if (preg_match('#^/agendas/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_utilisateur_voyages_put_item
+            if (preg_match('#^/utilisateur_voyages/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('PUT' !== $canonicalMethod) {
                     $allow[] = 'PUT';
-                    goto not_api_agendas_put_item;
+                    goto not_api_utilisateur_voyages_put_item;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_agendas_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Agenda',  '_api_item_operation_name' => 'put',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateur_voyages_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\UtilisateurVoyage',  '_api_item_operation_name' => 'put',));
             }
-            not_api_agendas_put_item:
+            not_api_utilisateur_voyages_put_item:
 
-            // api_agendas_delete_item
-            if (preg_match('#^/agendas/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_utilisateur_voyages_delete_item
+            if (preg_match('#^/utilisateur_voyages/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('DELETE' !== $canonicalMethod) {
                     $allow[] = 'DELETE';
-                    goto not_api_agendas_delete_item;
+                    goto not_api_utilisateur_voyages_delete_item;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_agendas_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Agenda',  '_api_item_operation_name' => 'delete',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateur_voyages_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\UtilisateurVoyage',  '_api_item_operation_name' => 'delete',));
             }
-            not_api_agendas_delete_item:
+            not_api_utilisateur_voyages_delete_item:
 
         }
 
-        elseif (0 === strpos($pathinfo, '/locations')) {
-            // api_locations_get_collection
-            if (preg_match('#^/locations(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+        elseif (0 === strpos($pathinfo, '/utilisateurs')) {
+            // api_utilisateurs_get_collection
+            if (preg_match('#^/utilisateurs(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('GET' !== $canonicalMethod) {
                     $allow[] = 'GET';
-                    goto not_api_locations_get_collection;
+                    goto not_api_utilisateurs_get_collection;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_locations_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Location',  '_api_collection_operation_name' => 'get',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateurs_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Utilisateur',  '_api_collection_operation_name' => 'get',));
             }
-            not_api_locations_get_collection:
+            not_api_utilisateurs_get_collection:
 
-            // api_locations_post_collection
-            if (preg_match('#^/locations(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_utilisateurs_post_collection
+            if (preg_match('#^/utilisateurs(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('POST' !== $canonicalMethod) {
                     $allow[] = 'POST';
-                    goto not_api_locations_post_collection;
+                    goto not_api_utilisateurs_post_collection;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_locations_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Location',  '_api_collection_operation_name' => 'post',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateurs_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Utilisateur',  '_api_collection_operation_name' => 'post',));
             }
-            not_api_locations_post_collection:
+            not_api_utilisateurs_post_collection:
 
-            // api_locations_get_item
-            if (preg_match('#^/locations/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_utilisateurs_get_item
+            if (preg_match('#^/utilisateurs/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('GET' !== $canonicalMethod) {
                     $allow[] = 'GET';
-                    goto not_api_locations_get_item;
+                    goto not_api_utilisateurs_get_item;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_locations_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Location',  '_api_item_operation_name' => 'get',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateurs_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Utilisateur',  '_api_item_operation_name' => 'get',));
             }
-            not_api_locations_get_item:
+            not_api_utilisateurs_get_item:
 
-            // api_locations_put_item
-            if (preg_match('#^/locations/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_utilisateurs_put_item
+            if (preg_match('#^/utilisateurs/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('PUT' !== $canonicalMethod) {
                     $allow[] = 'PUT';
-                    goto not_api_locations_put_item;
+                    goto not_api_utilisateurs_put_item;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_locations_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Location',  '_api_item_operation_name' => 'put',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateurs_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Utilisateur',  '_api_item_operation_name' => 'put',));
             }
-            not_api_locations_put_item:
+            not_api_utilisateurs_put_item:
 
-            // api_locations_delete_item
-            if (preg_match('#^/locations/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_utilisateurs_delete_item
+            if (preg_match('#^/utilisateurs/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('DELETE' !== $canonicalMethod) {
                     $allow[] = 'DELETE';
-                    goto not_api_locations_delete_item;
+                    goto not_api_utilisateurs_delete_item;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_locations_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Location',  '_api_item_operation_name' => 'delete',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateurs_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Utilisateur',  '_api_item_operation_name' => 'delete',));
             }
-            not_api_locations_delete_item:
+            not_api_utilisateurs_delete_item:
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/voyages')) {
+            // api_voyages_get_collection
+            if (preg_match('#^/voyages(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_api_voyages_get_collection;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_voyages_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Voyage',  '_api_collection_operation_name' => 'get',));
+            }
+            not_api_voyages_get_collection:
+
+            // api_voyages_post_collection
+            if (preg_match('#^/voyages(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                if ('POST' !== $canonicalMethod) {
+                    $allow[] = 'POST';
+                    goto not_api_voyages_post_collection;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_voyages_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Voyage',  '_api_collection_operation_name' => 'post',));
+            }
+            not_api_voyages_post_collection:
+
+            // api_voyages_get_item
+            if (preg_match('#^/voyages/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_api_voyages_get_item;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_voyages_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Voyage',  '_api_item_operation_name' => 'get',));
+            }
+            not_api_voyages_get_item:
+
+            // api_voyages_put_item
+            if (preg_match('#^/voyages/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                if ('PUT' !== $canonicalMethod) {
+                    $allow[] = 'PUT';
+                    goto not_api_voyages_put_item;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_voyages_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Voyage',  '_api_item_operation_name' => 'put',));
+            }
+            not_api_voyages_put_item:
+
+            // api_voyages_delete_item
+            if (preg_match('#^/voyages/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                if ('DELETE' !== $canonicalMethod) {
+                    $allow[] = 'DELETE';
+                    goto not_api_voyages_delete_item;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_voyages_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Voyage',  '_api_item_operation_name' => 'delete',));
+            }
+            not_api_voyages_delete_item:
 
         }
 
@@ -524,64 +463,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_moneypots_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Moneypot',  '_api_item_operation_name' => 'delete',));
             }
             not_api_moneypots_delete_item:
-
-        }
-
-        elseif (0 === strpos($pathinfo, '/notations')) {
-            // api_notations_get_collection
-            if (preg_match('#^/notations(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('GET' !== $canonicalMethod) {
-                    $allow[] = 'GET';
-                    goto not_api_notations_get_collection;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_notations_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Notation',  '_api_collection_operation_name' => 'get',));
-            }
-            not_api_notations_get_collection:
-
-            // api_notations_post_collection
-            if (preg_match('#^/notations(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('POST' !== $canonicalMethod) {
-                    $allow[] = 'POST';
-                    goto not_api_notations_post_collection;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_notations_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Notation',  '_api_collection_operation_name' => 'post',));
-            }
-            not_api_notations_post_collection:
-
-            // api_notations_get_item
-            if (preg_match('#^/notations/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('GET' !== $canonicalMethod) {
-                    $allow[] = 'GET';
-                    goto not_api_notations_get_item;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_notations_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Notation',  '_api_item_operation_name' => 'get',));
-            }
-            not_api_notations_get_item:
-
-            // api_notations_put_item
-            if (preg_match('#^/notations/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('PUT' !== $canonicalMethod) {
-                    $allow[] = 'PUT';
-                    goto not_api_notations_put_item;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_notations_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Notation',  '_api_item_operation_name' => 'put',));
-            }
-            not_api_notations_put_item:
-
-            // api_notations_delete_item
-            if (preg_match('#^/notations/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('DELETE' !== $canonicalMethod) {
-                    $allow[] = 'DELETE';
-                    goto not_api_notations_delete_item;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_notations_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Notation',  '_api_item_operation_name' => 'delete',));
-            }
-            not_api_notations_delete_item:
 
         }
 
@@ -701,235 +582,329 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        elseif (0 === strpos($pathinfo, '/transactions')) {
-            // api_transactions_get_collection
-            if (preg_match('#^/transactions(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('GET' !== $canonicalMethod) {
-                    $allow[] = 'GET';
-                    goto not_api_transactions_get_collection;
+        elseif (0 === strpos($pathinfo, '/a')) {
+            if (0 === strpos($pathinfo, '/activite')) {
+                if (0 === strpos($pathinfo, '/activite_packs')) {
+                    // api_activite_packs_get_collection
+                    if (preg_match('#^/activite_packs(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                        if ('GET' !== $canonicalMethod) {
+                            $allow[] = 'GET';
+                            goto not_api_activite_packs_get_collection;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_packs_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActivitePack',  '_api_collection_operation_name' => 'get',));
+                    }
+                    not_api_activite_packs_get_collection:
+
+                    // api_activite_packs_post_collection
+                    if (preg_match('#^/activite_packs(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                        if ('POST' !== $canonicalMethod) {
+                            $allow[] = 'POST';
+                            goto not_api_activite_packs_post_collection;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_packs_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActivitePack',  '_api_collection_operation_name' => 'post',));
+                    }
+                    not_api_activite_packs_post_collection:
+
+                    // api_activite_packs_get_item
+                    if (preg_match('#^/activite_packs/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                        if ('GET' !== $canonicalMethod) {
+                            $allow[] = 'GET';
+                            goto not_api_activite_packs_get_item;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_packs_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActivitePack',  '_api_item_operation_name' => 'get',));
+                    }
+                    not_api_activite_packs_get_item:
+
+                    // api_activite_packs_put_item
+                    if (preg_match('#^/activite_packs/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                        if ('PUT' !== $canonicalMethod) {
+                            $allow[] = 'PUT';
+                            goto not_api_activite_packs_put_item;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_packs_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActivitePack',  '_api_item_operation_name' => 'put',));
+                    }
+                    not_api_activite_packs_put_item:
+
+                    // api_activite_packs_delete_item
+                    if (preg_match('#^/activite_packs/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                        if ('DELETE' !== $canonicalMethod) {
+                            $allow[] = 'DELETE';
+                            goto not_api_activite_packs_delete_item;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_packs_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActivitePack',  '_api_item_operation_name' => 'delete',));
+                    }
+                    not_api_activite_packs_delete_item:
+
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_transactions_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Transaction',  '_api_collection_operation_name' => 'get',));
-            }
-            not_api_transactions_get_collection:
+                elseif (0 === strpos($pathinfo, '/activite_agendas')) {
+                    // api_activite_agendas_get_collection
+                    if (preg_match('#^/activite_agendas(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                        if ('GET' !== $canonicalMethod) {
+                            $allow[] = 'GET';
+                            goto not_api_activite_agendas_get_collection;
+                        }
 
-            // api_transactions_post_collection
-            if (preg_match('#^/transactions(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('POST' !== $canonicalMethod) {
-                    $allow[] = 'POST';
-                    goto not_api_transactions_post_collection;
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_agendas_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActiviteAgenda',  '_api_collection_operation_name' => 'get',));
+                    }
+                    not_api_activite_agendas_get_collection:
+
+                    // api_activite_agendas_post_collection
+                    if (preg_match('#^/activite_agendas(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                        if ('POST' !== $canonicalMethod) {
+                            $allow[] = 'POST';
+                            goto not_api_activite_agendas_post_collection;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_agendas_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActiviteAgenda',  '_api_collection_operation_name' => 'post',));
+                    }
+                    not_api_activite_agendas_post_collection:
+
+                    // api_activite_agendas_get_item
+                    if (preg_match('#^/activite_agendas/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                        if ('GET' !== $canonicalMethod) {
+                            $allow[] = 'GET';
+                            goto not_api_activite_agendas_get_item;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_agendas_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActiviteAgenda',  '_api_item_operation_name' => 'get',));
+                    }
+                    not_api_activite_agendas_get_item:
+
+                    // api_activite_agendas_put_item
+                    if (preg_match('#^/activite_agendas/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                        if ('PUT' !== $canonicalMethod) {
+                            $allow[] = 'PUT';
+                            goto not_api_activite_agendas_put_item;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_agendas_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActiviteAgenda',  '_api_item_operation_name' => 'put',));
+                    }
+                    not_api_activite_agendas_put_item:
+
+                    // api_activite_agendas_delete_item
+                    if (preg_match('#^/activite_agendas/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                        if ('DELETE' !== $canonicalMethod) {
+                            $allow[] = 'DELETE';
+                            goto not_api_activite_agendas_delete_item;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activite_agendas_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\ActiviteAgenda',  '_api_item_operation_name' => 'delete',));
+                    }
+                    not_api_activite_agendas_delete_item:
+
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_transactions_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Transaction',  '_api_collection_operation_name' => 'post',));
-            }
-            not_api_transactions_post_collection:
+                elseif (0 === strpos($pathinfo, '/activites')) {
+                    // api_activites_get_collection
+                    if (preg_match('#^/activites(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                        if ('GET' !== $canonicalMethod) {
+                            $allow[] = 'GET';
+                            goto not_api_activites_get_collection;
+                        }
 
-            // api_transactions_get_item
-            if (preg_match('#^/transactions/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('GET' !== $canonicalMethod) {
-                    $allow[] = 'GET';
-                    goto not_api_transactions_get_item;
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activites_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Activite',  '_api_collection_operation_name' => 'get',));
+                    }
+                    not_api_activites_get_collection:
+
+                    // api_activites_post_collection
+                    if (preg_match('#^/activites(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                        if ('POST' !== $canonicalMethod) {
+                            $allow[] = 'POST';
+                            goto not_api_activites_post_collection;
+                        }
+
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_activites_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Activite',  '_api_collection_operation_name' => 'post',));
+                    }
+                    not_api_activites_post_collection:
+
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_transactions_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Transaction',  '_api_item_operation_name' => 'get',));
             }
-            not_api_transactions_get_item:
 
-            // api_transactions_put_item
-            if (preg_match('#^/transactions/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('PUT' !== $canonicalMethod) {
-                    $allow[] = 'PUT';
-                    goto not_api_transactions_put_item;
+            // find_utilisateurs_by_activite_get
+            if (0 === strpos($pathinfo, '/activities') && preg_match('#^/activities/(?P<id>[^/]++)/users$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'find_utilisateurs_by_activite_get')), array (  '_api_resource_class' => 'AppBundle\\Entity\\Activite',  '_api_collection_operation_name' => 'find_utilisateurs_by_activite_get',  '_controller' => 'AppBundle\\Action\\ActivitieSpecial::findUtilisateursByActivite',));
+            }
+
+            if (0 === strpos($pathinfo, '/agendas')) {
+                // api_agendas_get_collection
+                if (preg_match('#^/agendas(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                    if ('GET' !== $canonicalMethod) {
+                        $allow[] = 'GET';
+                        goto not_api_agendas_get_collection;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_agendas_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Agenda',  '_api_collection_operation_name' => 'get',));
                 }
+                not_api_agendas_get_collection:
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_transactions_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Transaction',  '_api_item_operation_name' => 'put',));
-            }
-            not_api_transactions_put_item:
+                // api_agendas_post_collection
+                if (preg_match('#^/agendas(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                    if ('POST' !== $canonicalMethod) {
+                        $allow[] = 'POST';
+                        goto not_api_agendas_post_collection;
+                    }
 
-            // api_transactions_delete_item
-            if (preg_match('#^/transactions/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('DELETE' !== $canonicalMethod) {
-                    $allow[] = 'DELETE';
-                    goto not_api_transactions_delete_item;
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_agendas_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Agenda',  '_api_collection_operation_name' => 'post',));
                 }
+                not_api_agendas_post_collection:
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_transactions_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Transaction',  '_api_item_operation_name' => 'delete',));
+                // api_agendas_get_item
+                if (preg_match('#^/agendas/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                    if ('GET' !== $canonicalMethod) {
+                        $allow[] = 'GET';
+                        goto not_api_agendas_get_item;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_agendas_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Agenda',  '_api_item_operation_name' => 'get',));
+                }
+                not_api_agendas_get_item:
+
+                // api_agendas_put_item
+                if (preg_match('#^/agendas/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                    if ('PUT' !== $canonicalMethod) {
+                        $allow[] = 'PUT';
+                        goto not_api_agendas_put_item;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_agendas_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Agenda',  '_api_item_operation_name' => 'put',));
+                }
+                not_api_agendas_put_item:
+
+                // api_agendas_delete_item
+                if (preg_match('#^/agendas/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+                    if ('DELETE' !== $canonicalMethod) {
+                        $allow[] = 'DELETE';
+                        goto not_api_agendas_delete_item;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_agendas_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Agenda',  '_api_item_operation_name' => 'delete',));
+                }
+                not_api_agendas_delete_item:
+
             }
-            not_api_transactions_delete_item:
 
         }
 
-        elseif (0 === strpos($pathinfo, '/utilisateurs')) {
-            // api_utilisateurs_get_collection
-            if (preg_match('#^/utilisateurs(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+        elseif (0 === strpos($pathinfo, '/notations')) {
+            // api_notations_get_collection
+            if (preg_match('#^/notations(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('GET' !== $canonicalMethod) {
                     $allow[] = 'GET';
-                    goto not_api_utilisateurs_get_collection;
+                    goto not_api_notations_get_collection;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateurs_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Utilisateur',  '_api_collection_operation_name' => 'get',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_notations_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Notation',  '_api_collection_operation_name' => 'get',));
             }
-            not_api_utilisateurs_get_collection:
+            not_api_notations_get_collection:
 
-            // api_utilisateurs_post_collection
-            if (preg_match('#^/utilisateurs(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_notations_post_collection
+            if (preg_match('#^/notations(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('POST' !== $canonicalMethod) {
                     $allow[] = 'POST';
-                    goto not_api_utilisateurs_post_collection;
+                    goto not_api_notations_post_collection;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateurs_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Utilisateur',  '_api_collection_operation_name' => 'post',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_notations_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Notation',  '_api_collection_operation_name' => 'post',));
             }
-            not_api_utilisateurs_post_collection:
+            not_api_notations_post_collection:
 
-            // api_utilisateurs_get_item
-            if (preg_match('#^/utilisateurs/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_notations_get_item
+            if (preg_match('#^/notations/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('GET' !== $canonicalMethod) {
                     $allow[] = 'GET';
-                    goto not_api_utilisateurs_get_item;
+                    goto not_api_notations_get_item;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateurs_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Utilisateur',  '_api_item_operation_name' => 'get',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_notations_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Notation',  '_api_item_operation_name' => 'get',));
             }
-            not_api_utilisateurs_get_item:
+            not_api_notations_get_item:
 
-            // api_utilisateurs_put_item
-            if (preg_match('#^/utilisateurs/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_notations_put_item
+            if (preg_match('#^/notations/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('PUT' !== $canonicalMethod) {
                     $allow[] = 'PUT';
-                    goto not_api_utilisateurs_put_item;
+                    goto not_api_notations_put_item;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateurs_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Utilisateur',  '_api_item_operation_name' => 'put',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_notations_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Notation',  '_api_item_operation_name' => 'put',));
             }
-            not_api_utilisateurs_put_item:
+            not_api_notations_put_item:
 
-            // api_utilisateurs_delete_item
-            if (preg_match('#^/utilisateurs/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_notations_delete_item
+            if (preg_match('#^/notations/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('DELETE' !== $canonicalMethod) {
                     $allow[] = 'DELETE';
-                    goto not_api_utilisateurs_delete_item;
+                    goto not_api_notations_delete_item;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateurs_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Utilisateur',  '_api_item_operation_name' => 'delete',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_notations_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Notation',  '_api_item_operation_name' => 'delete',));
             }
-            not_api_utilisateurs_delete_item:
+            not_api_notations_delete_item:
 
         }
 
-        elseif (0 === strpos($pathinfo, '/utilisateur_voyages')) {
-            // api_utilisateur_voyages_get_collection
-            if (preg_match('#^/utilisateur_voyages(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+        elseif (0 === strpos($pathinfo, '/locations')) {
+            // api_locations_get_collection
+            if (preg_match('#^/locations(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('GET' !== $canonicalMethod) {
                     $allow[] = 'GET';
-                    goto not_api_utilisateur_voyages_get_collection;
+                    goto not_api_locations_get_collection;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateur_voyages_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\UtilisateurVoyage',  '_api_collection_operation_name' => 'get',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_locations_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Location',  '_api_collection_operation_name' => 'get',));
             }
-            not_api_utilisateur_voyages_get_collection:
+            not_api_locations_get_collection:
 
-            // api_utilisateur_voyages_post_collection
-            if (preg_match('#^/utilisateur_voyages(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_locations_post_collection
+            if (preg_match('#^/locations(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('POST' !== $canonicalMethod) {
                     $allow[] = 'POST';
-                    goto not_api_utilisateur_voyages_post_collection;
+                    goto not_api_locations_post_collection;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateur_voyages_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\UtilisateurVoyage',  '_api_collection_operation_name' => 'post',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_locations_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Location',  '_api_collection_operation_name' => 'post',));
             }
-            not_api_utilisateur_voyages_post_collection:
+            not_api_locations_post_collection:
 
-            // api_utilisateur_voyages_get_item
-            if (preg_match('#^/utilisateur_voyages/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_locations_get_item
+            if (preg_match('#^/locations/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('GET' !== $canonicalMethod) {
                     $allow[] = 'GET';
-                    goto not_api_utilisateur_voyages_get_item;
+                    goto not_api_locations_get_item;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateur_voyages_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\UtilisateurVoyage',  '_api_item_operation_name' => 'get',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_locations_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Location',  '_api_item_operation_name' => 'get',));
             }
-            not_api_utilisateur_voyages_get_item:
+            not_api_locations_get_item:
 
-            // api_utilisateur_voyages_put_item
-            if (preg_match('#^/utilisateur_voyages/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_locations_put_item
+            if (preg_match('#^/locations/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('PUT' !== $canonicalMethod) {
                     $allow[] = 'PUT';
-                    goto not_api_utilisateur_voyages_put_item;
+                    goto not_api_locations_put_item;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateur_voyages_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\UtilisateurVoyage',  '_api_item_operation_name' => 'put',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_locations_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Location',  '_api_item_operation_name' => 'put',));
             }
-            not_api_utilisateur_voyages_put_item:
+            not_api_locations_put_item:
 
-            // api_utilisateur_voyages_delete_item
-            if (preg_match('#^/utilisateur_voyages/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
+            // api_locations_delete_item
+            if (preg_match('#^/locations/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
                 if ('DELETE' !== $canonicalMethod) {
                     $allow[] = 'DELETE';
-                    goto not_api_utilisateur_voyages_delete_item;
+                    goto not_api_locations_delete_item;
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_utilisateur_voyages_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\UtilisateurVoyage',  '_api_item_operation_name' => 'delete',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_locations_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Location',  '_api_item_operation_name' => 'delete',));
             }
-            not_api_utilisateur_voyages_delete_item:
-
-        }
-
-        elseif (0 === strpos($pathinfo, '/voyages')) {
-            // api_voyages_get_collection
-            if (preg_match('#^/voyages(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('GET' !== $canonicalMethod) {
-                    $allow[] = 'GET';
-                    goto not_api_voyages_get_collection;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_voyages_get_collection')), array (  '_controller' => 'api_platform.action.get_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Voyage',  '_api_collection_operation_name' => 'get',));
-            }
-            not_api_voyages_get_collection:
-
-            // api_voyages_post_collection
-            if (preg_match('#^/voyages(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('POST' !== $canonicalMethod) {
-                    $allow[] = 'POST';
-                    goto not_api_voyages_post_collection;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_voyages_post_collection')), array (  '_controller' => 'api_platform.action.post_collection',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Voyage',  '_api_collection_operation_name' => 'post',));
-            }
-            not_api_voyages_post_collection:
-
-            // api_voyages_get_item
-            if (preg_match('#^/voyages/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('GET' !== $canonicalMethod) {
-                    $allow[] = 'GET';
-                    goto not_api_voyages_get_item;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_voyages_get_item')), array (  '_controller' => 'api_platform.action.get_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Voyage',  '_api_item_operation_name' => 'get',));
-            }
-            not_api_voyages_get_item:
-
-            // api_voyages_put_item
-            if (preg_match('#^/voyages/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('PUT' !== $canonicalMethod) {
-                    $allow[] = 'PUT';
-                    goto not_api_voyages_put_item;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_voyages_put_item')), array (  '_controller' => 'api_platform.action.put_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Voyage',  '_api_item_operation_name' => 'put',));
-            }
-            not_api_voyages_put_item:
-
-            // api_voyages_delete_item
-            if (preg_match('#^/voyages/(?P<id>[^/\\.]++)(?:\\.(?P<_format>[^/]++))?$#s', $pathinfo, $matches)) {
-                if ('DELETE' !== $canonicalMethod) {
-                    $allow[] = 'DELETE';
-                    goto not_api_voyages_delete_item;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'api_voyages_delete_item')), array (  '_controller' => 'api_platform.action.delete_item',  '_format' => NULL,  '_api_resource_class' => 'AppBundle\\Entity\\Voyage',  '_api_item_operation_name' => 'delete',));
-            }
-            not_api_voyages_delete_item:
+            not_api_locations_delete_item:
 
         }
 

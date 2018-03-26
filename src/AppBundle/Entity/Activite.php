@@ -7,9 +7,13 @@ use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Activite
- *@ApiResource
+ *@ApiResource(
+ *     itemOperations={
+ *     "find_utilisateurs_by_activite_get"={"route_name"="find_utilisateurs_by_activite_get"}
+ *      }
+ * )
  * @ORM\Table(name="activite", indexes={@ORM\Index(name="location_activite", columns={"location_activite"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ActiviteRepository")
  */
 class Activite
 {

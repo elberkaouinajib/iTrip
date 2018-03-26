@@ -43,10 +43,11 @@ class appDevDebugProjectContainer extends Container
             'apiplatform\\core\\metadata\\resource\\factory\\resourcemetadatafactoryinterface' => 'ApiPlatform\\Core\\Metadata\\Resource\\Factory\\ResourceMetadataFactoryInterface',
             'apiplatform\\core\\metadata\\resource\\factory\\resourcenamecollectionfactoryinterface' => 'ApiPlatform\\Core\\Metadata\\Resource\\Factory\\ResourceNameCollectionFactoryInterface',
             'apiplatform\\core\\serializer\\serializercontextbuilderinterface' => 'ApiPlatform\\Core\\Serializer\\SerializerContextBuilderInterface',
+            'appbundle\\action\\activitiespecial' => 'AppBundle\\Action\\ActivitieSpecial',
         );
         $this->methodMap = array(
-            '1_de949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3' => 'get1De949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3Service',
-            '2_de949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3' => 'get2De949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3Service',
+            '1_4a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ff' => 'get14a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ffService',
+            '2_4a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ff' => 'get24a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ffService',
             'ApiPlatform\\Core\\Api\\IriConverterInterface' => 'getApiPlatform_Core_Api_IriConverterInterfaceService',
             'ApiPlatform\\Core\\Bridge\\Doctrine\\Orm\\Extension\\EagerLoadingExtension' => 'getApiPlatform_Core_Bridge_Doctrine_Orm_Extension_EagerLoadingExtensionService',
             'ApiPlatform\\Core\\Bridge\\Doctrine\\Orm\\Extension\\FilterEagerLoadingExtension' => 'getApiPlatform_Core_Bridge_Doctrine_Orm_Extension_FilterEagerLoadingExtensionService',
@@ -57,6 +58,7 @@ class appDevDebugProjectContainer extends Container
             'ApiPlatform\\Core\\Metadata\\Resource\\Factory\\ResourceMetadataFactoryInterface' => 'getApiPlatform_Core_Metadata_Resource_Factory_ResourceMetadataFactoryInterfaceService',
             'ApiPlatform\\Core\\Metadata\\Resource\\Factory\\ResourceNameCollectionFactoryInterface' => 'getApiPlatform_Core_Metadata_Resource_Factory_ResourceNameCollectionFactoryInterfaceService',
             'ApiPlatform\\Core\\Serializer\\SerializerContextBuilderInterface' => 'getApiPlatform_Core_Serializer_SerializerContextBuilderInterfaceService',
+            'AppBundle\\Action\\ActivitieSpecial' => 'getAppBundle_Action_ActivitieSpecialService',
             'annotation_reader' => 'getAnnotationReaderService',
             'annotations.reader' => 'getAnnotations_ReaderService',
             'api_platform.action.documentation' => 'getApiPlatform_Action_DocumentationService',
@@ -311,8 +313,8 @@ class appDevDebugProjectContainer extends Container
             'web_profiler.debug_toolbar' => 'getWebProfiler_DebugToolbarService',
         );
         $this->privates = array(
-            '1_de949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3' => true,
-            '2_de949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3' => true,
+            '1_4a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ff' => true,
+            '2_4a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ff' => true,
             'annotations.reader' => true,
             'api_platform.filter_locator' => true,
             'api_platform.jsonld.context_builder' => true,
@@ -519,7 +521,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getApiPlatform_Core_Metadata_Resource_Factory_ResourceNameCollectionFactoryInterfaceService()
     {
-        return $this->services['ApiPlatform\Core\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface'] = new \ApiPlatform\Core\Metadata\Resource\Factory\CachedResourceNameCollectionFactory(${($_ = isset($this->services['api_platform.cache.metadata.resource']) ? $this->services['api_platform.cache.metadata.resource'] : $this->get('api_platform.cache.metadata.resource')) && false ?: '_'}, new \ApiPlatform\Core\Metadata\Resource\Factory\ExtractorResourceNameCollectionFactory(${($_ = isset($this->services['api_platform.metadata.extractor.yaml']) ? $this->services['api_platform.metadata.extractor.yaml'] : $this->getApiPlatform_Metadata_Extractor_YamlService()) && false ?: '_'}, new \ApiPlatform\Core\Metadata\Resource\Factory\AnnotationResourceNameCollectionFactory(${($_ = isset($this->services['annotation_reader']) ? $this->services['annotation_reader'] : $this->get('annotation_reader')) && false ?: '_'}, array(0 => ($this->targetDirs[3].'\\src\\AppBundle/Entity')), new \ApiPlatform\Core\Metadata\Resource\Factory\ExtractorResourceNameCollectionFactory(${($_ = isset($this->services['api_platform.metadata.extractor.xml']) ? $this->services['api_platform.metadata.extractor.xml'] : $this->getApiPlatform_Metadata_Extractor_XmlService()) && false ?: '_'}))));
+        return $this->services['ApiPlatform\Core\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface'] = new \ApiPlatform\Core\Metadata\Resource\Factory\CachedResourceNameCollectionFactory(${($_ = isset($this->services['api_platform.cache.metadata.resource']) ? $this->services['api_platform.cache.metadata.resource'] : $this->get('api_platform.cache.metadata.resource')) && false ?: '_'}, new \ApiPlatform\Core\Metadata\Resource\Factory\ExtractorResourceNameCollectionFactory(${($_ = isset($this->services['api_platform.metadata.extractor.yaml']) ? $this->services['api_platform.metadata.extractor.yaml'] : $this->getApiPlatform_Metadata_Extractor_YamlService()) && false ?: '_'}, new \ApiPlatform\Core\Metadata\Resource\Factory\AnnotationResourceNameCollectionFactory(${($_ = isset($this->services['annotation_reader']) ? $this->services['annotation_reader'] : $this->get('annotation_reader')) && false ?: '_'}, array(0 => ($this->targetDirs[3].'/src/AppBundle/Entity')), new \ApiPlatform\Core\Metadata\Resource\Factory\ExtractorResourceNameCollectionFactory(${($_ = isset($this->services['api_platform.metadata.extractor.xml']) ? $this->services['api_platform.metadata.extractor.xml'] : $this->getApiPlatform_Metadata_Extractor_XmlService()) && false ?: '_'}))));
     }
 
     /**
@@ -532,6 +534,16 @@ class appDevDebugProjectContainer extends Container
         $a = ${($_ = isset($this->services['ApiPlatform\Core\Metadata\Resource\Factory\ResourceMetadataFactoryInterface']) ? $this->services['ApiPlatform\Core\Metadata\Resource\Factory\ResourceMetadataFactoryInterface'] : $this->get('ApiPlatform\Core\Metadata\Resource\Factory\ResourceMetadataFactoryInterface')) && false ?: '_'};
 
         return $this->services['ApiPlatform\Core\Serializer\SerializerContextBuilderInterface'] = new \ApiPlatform\Core\Serializer\SerializerFilterContextBuilder($a, ${($_ = isset($this->services['api_platform.filter_locator']) ? $this->services['api_platform.filter_locator'] : $this->getApiPlatform_FilterLocatorService()) && false ?: '_'}, new \ApiPlatform\Core\Serializer\SerializerContextBuilder($a));
+    }
+
+    /**
+     * Gets the public 'AppBundle\Action\ActivitieSpecial' shared autowired service.
+     *
+     * @return \AppBundle\Action\ActivitieSpecial
+     */
+    protected function getAppBundle_Action_ActivitieSpecialService()
+    {
+        return $this->services['AppBundle\Action\ActivitieSpecial'] = new \AppBundle\Action\ActivitieSpecial();
     }
 
     /**
@@ -970,11 +982,11 @@ class appDevDebugProjectContainer extends Container
         $a = ${($_ = isset($this->services['kernel']) ? $this->services['kernel'] : $this->get('kernel')) && false ?: '_'};
         $b = ${($_ = isset($this->services['templating.filename_parser']) ? $this->services['templating.filename_parser'] : $this->get('templating.filename_parser')) && false ?: '_'};
 
-        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, ($this->targetDirs[3].'\\app/Resources'));
+        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, ($this->targetDirs[3].'/app/Resources'));
 
         return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, ${($_ = isset($this->services['templating.locator']) ? $this->services['templating.locator'] : $this->getTemplating_LocatorService()) && false ?: '_'}), 1 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer(${($_ = isset($this->services['validator.builder']) ? $this->services['validator.builder'] : $this->get('validator.builder')) && false ?: '_'}, (__DIR__.'/validation.php'), ${($_ = isset($this->services['cache.validator']) ? $this->services['cache.validator'] : $this->getCache_ValidatorService()) && false ?: '_'}), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer(${($_ = isset($this->services['router']) ? $this->services['router'] : $this->get('router')) && false ?: '_'}), 3 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer(${($_ = isset($this->services['annotations.reader']) ? $this->services['annotations.reader'] : $this->getAnnotations_ReaderService()) && false ?: '_'}, (__DIR__.'/annotations.php'), ${($_ = isset($this->services['cache.annotations']) ? $this->services['cache.annotations'] : $this->getCache_AnnotationsService()) && false ?: '_'}), 4 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\SerializerCacheWarmer(array(0 => new \Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader(${($_ = isset($this->services['annotation_reader']) ? $this->services['annotation_reader'] : $this->get('annotation_reader')) && false ?: '_'})), (__DIR__.'/serialization.php'), ${($_ = isset($this->services['cache.serializer']) ? $this->services['cache.serializer'] : $this->getCache_SerializerService()) && false ?: '_'}), 5 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer(new \Symfony\Component\DependencyInjection\ServiceLocator(array('twig' => function () {
             $f = function (\Twig\Environment $v) { return $v; }; return $f(${($_ = isset($this->services['twig']) ? $this->services['twig'] : $this->get('twig')) && false ?: '_'});
-        })), $c, array()), 6 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this, new \Symfony\Bundle\TwigBundle\TemplateIterator($a, ($this->targetDirs[3].'\\app'), array())), 7 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer(${($_ = isset($this->services['doctrine']) ? $this->services['doctrine'] : $this->get('doctrine')) && false ?: '_'})));
+        })), $c, array()), 6 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this, new \Symfony\Bundle\TwigBundle\TemplateIterator($a, ($this->targetDirs[3].'/app'), array())), 7 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer(${($_ = isset($this->services['doctrine']) ? $this->services['doctrine'] : $this->get('doctrine')) && false ?: '_'})));
     }
 
     /**
@@ -985,8 +997,8 @@ class appDevDebugProjectContainer extends Container
     protected function getConfigCacheFactoryService()
     {
         return $this->services['config_cache_factory'] = new \Symfony\Component\Config\ResourceCheckerConfigCacheFactory(new RewindableGenerator(function () {
-            yield 0 => ${($_ = isset($this->services['1_de949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3']) ? $this->services['1_de949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3'] : $this->get1De949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3Service()) && false ?: '_'};
-            yield 1 => ${($_ = isset($this->services['2_de949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3']) ? $this->services['2_de949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3'] : $this->get2De949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3Service()) && false ?: '_'};
+            yield 0 => ${($_ = isset($this->services['1_4a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ff']) ? $this->services['1_4a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ff'] : $this->get14a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ffService()) && false ?: '_'};
+            yield 1 => ${($_ = isset($this->services['2_4a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ff']) ? $this->services['2_4a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ff'] : $this->get24a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ffService()) && false ?: '_'};
         }, 2));
     }
 
@@ -1223,9 +1235,6 @@ class appDevDebugProjectContainer extends Container
         $instance->addListener('kernel.request', array(0 => function () {
             return ${($_ = isset($this->services['debug.debug_handlers_listener']) ? $this->services['debug.debug_handlers_listener'] : $this->get('debug.debug_handlers_listener')) && false ?: '_'};
         }, 1 => 'configure'), 2048);
-        $instance->addListener('console.command', array(0 => function () {
-            return ${($_ = isset($this->services['debug.debug_handlers_listener']) ? $this->services['debug.debug_handlers_listener'] : $this->get('debug.debug_handlers_listener')) && false ?: '_'};
-        }, 1 => 'configure'), 2048);
         $instance->addListener('kernel.request', array(0 => function () {
             return ${($_ = isset($this->services['router_listener']) ? $this->services['router_listener'] : $this->get('router_listener')) && false ?: '_'};
         }, 1 => 'onKernelRequest'), 32);
@@ -1431,7 +1440,7 @@ class appDevDebugProjectContainer extends Container
         $c->addEventListener(array(0 => 'preUpdate', 1 => 'onFlush', 2 => 'postFlush'), ${($_ = isset($this->services['api_platform.doctrine.listener.http_cache.purge']) ? $this->services['api_platform.doctrine.listener.http_cache.purge'] : $this->get('api_platform.doctrine.listener.http_cache.purge')) && false ?: '_'});
         $c->addEventListener(array(0 => 'loadClassMetadata'), ${($_ = isset($this->services['doctrine.orm.default_listeners.attach_entity_listeners']) ? $this->services['doctrine.orm.default_listeners.attach_entity_listeners'] : $this->get('doctrine.orm.default_listeners.attach_entity_listeners')) && false ?: '_'});
 
-        return $this->services['doctrine.dbal.default_connection'] = ${($_ = isset($this->services['doctrine.dbal.connection_factory']) ? $this->services['doctrine.dbal.connection_factory'] : $this->get('doctrine.dbal.connection_factory')) && false ?: '_'}->createConnection(array('driver' => 'pdo_mysql', 'host' => 'https://databases.000webhost.com', 'port' => 3306, 'dbname' => 'id5012420_itrib', 'user' => 'root', 'password' => 'itriptoor', 'charset' => 'UTF8', 'driverOptions' => array(), 'serverVersion' => '5.7', 'defaultTableOptions' => array()), $b, $c, array());
+        return $this->services['doctrine.dbal.default_connection'] = ${($_ = isset($this->services['doctrine.dbal.connection_factory']) ? $this->services['doctrine.dbal.connection_factory'] : $this->get('doctrine.dbal.connection_factory')) && false ?: '_'}->createConnection(array('driver' => 'pdo_mysql', 'host' => '127.0.0.1', 'port' => 3306, 'dbname' => 'iTripApi', 'user' => 'root', 'password' => NULL, 'charset' => 'UTF8', 'driverOptions' => array(), 'serverVersion' => '5.7', 'defaultTableOptions' => array()), $b, $c, array());
     }
 
     /**
@@ -1501,7 +1510,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService($lazyLoad = true)
     {
-        $a = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array(($this->targetDirs[3].'\\src\\AppBundle\\Resources\\config\\doctrine') => 'AppBundle\\Entity'));
+        $a = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array(($this->targetDirs[3].'/src/AppBundle/Resources/config/doctrine') => 'AppBundle\\Entity'));
         $a->setGlobalBasename('mapping');
 
         $b = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
@@ -1679,7 +1688,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_metadata_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf_orm_default_d60a75f2e0dfed7f298d7d65ea8a33f6e43293b4770e913de346531aee43667d');
+        $instance->setNamespace('sf_orm_default_0eddde5d79c60cf4d0447d5acf42de28a11de68e75227449066ce38998932046');
 
         return $instance;
     }
@@ -1693,7 +1702,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_query_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf_orm_default_d60a75f2e0dfed7f298d7d65ea8a33f6e43293b4770e913de346531aee43667d');
+        $instance->setNamespace('sf_orm_default_0eddde5d79c60cf4d0447d5acf42de28a11de68e75227449066ce38998932046');
 
         return $instance;
     }
@@ -1707,7 +1716,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_result_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf_orm_default_d60a75f2e0dfed7f298d7d65ea8a33f6e43293b4770e913de346531aee43667d');
+        $instance->setNamespace('sf_orm_default_0eddde5d79c60cf4d0447d5acf42de28a11de68e75227449066ce38998932046');
 
         return $instance;
     }
@@ -1729,7 +1738,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFileLocatorService()
     {
-        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator(${($_ = isset($this->services['kernel']) ? $this->services['kernel'] : $this->get('kernel')) && false ?: '_'}, ($this->targetDirs[3].'\\app/Resources'), array(0 => ($this->targetDirs[3].'\\app')));
+        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator(${($_ = isset($this->services['kernel']) ? $this->services['kernel'] : $this->get('kernel')) && false ?: '_'}, ($this->targetDirs[3].'/app/Resources'), array(0 => ($this->targetDirs[3].'/app')));
     }
 
     /**
@@ -1889,7 +1898,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getMonolog_Handler_MainService()
     {
-        $this->services['monolog.handler.main'] = $instance = new \Monolog\Handler\StreamHandler(($this->targetDirs[2].'\\logs/dev.log'), 100, true, NULL);
+        $this->services['monolog.handler.main'] = $instance = new \Monolog\Handler\StreamHandler(($this->targetDirs[2].'/logs/dev.log'), 100, true, NULL);
 
         $instance->pushProcessor(new \Monolog\Processor\PsrLogMessageProcessor());
 
@@ -2249,7 +2258,7 @@ class appDevDebugProjectContainer extends Container
         $d->addLoader($c);
         $d->addLoader(new \Symfony\Component\Routing\Loader\AnnotationDirectoryLoader($a, $c));
         $d->addLoader(new \Symfony\Component\Routing\Loader\AnnotationFileLoader($a, $c));
-        $d->addLoader(new \ApiPlatform\Core\Bridge\Symfony\Routing\ApiLoader(${($_ = isset($this->services['kernel']) ? $this->services['kernel'] : $this->get('kernel')) && false ?: '_'}, ${($_ = isset($this->services['ApiPlatform\Core\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface']) ? $this->services['ApiPlatform\Core\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface'] : $this->get('ApiPlatform\Core\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface')) && false ?: '_'}, ${($_ = isset($this->services['ApiPlatform\Core\Metadata\Resource\Factory\ResourceMetadataFactoryInterface']) ? $this->services['ApiPlatform\Core\Metadata\Resource\Factory\ResourceMetadataFactoryInterface'] : $this->get('ApiPlatform\Core\Metadata\Resource\Factory\ResourceMetadataFactoryInterface')) && false ?: '_'}, ${($_ = isset($this->services['api_platform.operation_path_resolver.custom']) ? $this->services['api_platform.operation_path_resolver.custom'] : $this->getApiPlatform_OperationPathResolver_CustomService()) && false ?: '_'}, $this, array('jsonld' => array(0 => 'application/ld+json'), 'json' => array(0 => 'application/json'), 'html' => array(0 => 'text/html')), array(0 => ($this->targetDirs[3].'\\src\\AppBundle/Entity')), ${($_ = isset($this->services['api_platform.subresource_operation_factory.cached']) ? $this->services['api_platform.subresource_operation_factory.cached'] : $this->getApiPlatform_SubresourceOperationFactory_CachedService()) && false ?: '_'}));
+        $d->addLoader(new \ApiPlatform\Core\Bridge\Symfony\Routing\ApiLoader(${($_ = isset($this->services['kernel']) ? $this->services['kernel'] : $this->get('kernel')) && false ?: '_'}, ${($_ = isset($this->services['ApiPlatform\Core\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface']) ? $this->services['ApiPlatform\Core\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface'] : $this->get('ApiPlatform\Core\Metadata\Resource\Factory\ResourceNameCollectionFactoryInterface')) && false ?: '_'}, ${($_ = isset($this->services['ApiPlatform\Core\Metadata\Resource\Factory\ResourceMetadataFactoryInterface']) ? $this->services['ApiPlatform\Core\Metadata\Resource\Factory\ResourceMetadataFactoryInterface'] : $this->get('ApiPlatform\Core\Metadata\Resource\Factory\ResourceMetadataFactoryInterface')) && false ?: '_'}, ${($_ = isset($this->services['api_platform.operation_path_resolver.custom']) ? $this->services['api_platform.operation_path_resolver.custom'] : $this->getApiPlatform_OperationPathResolver_CustomService()) && false ?: '_'}, $this, array('jsonld' => array(0 => 'application/ld+json'), 'json' => array(0 => 'application/json'), 'html' => array(0 => 'text/html')), array(0 => ($this->targetDirs[3].'/src/AppBundle/Entity')), ${($_ = isset($this->services['api_platform.subresource_operation_factory.cached']) ? $this->services['api_platform.subresource_operation_factory.cached'] : $this->getApiPlatform_SubresourceOperationFactory_CachedService()) && false ?: '_'}));
 
         return $this->services['routing.loader'] = new \Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader(${($_ = isset($this->services['controller_name_converter']) ? $this->services['controller_name_converter'] : $this->getControllerNameConverterService()) && false ?: '_'}, $d);
     }
@@ -2329,7 +2338,7 @@ class appDevDebugProjectContainer extends Container
 
         $f = new \Symfony\Component\Security\Http\AccessMap();
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($f, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider()), 'main', $a, ${($_ = isset($this->services['debug.event_dispatcher']) ? $this->services['debug.event_dispatcher'] : $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'}, $c), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '5aa86a94674580.99356945', $a, $d), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, ${($_ = isset($this->services['debug.security.access.decision_manager']) ? $this->services['debug.security.access.decision_manager'] : $this->getDebug_Security_Access_DecisionManagerService()) && false ?: '_'}, $f, $d)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $c, new \Symfony\Component\Security\Http\HttpUtils($e, $e), 'main', NULL, NULL, NULL, $a, false), new \Symfony\Bundle\SecurityBundle\Security\FirewallConfig('main', 'security.user_checker', NULL, true, false, 'security.user.provider.concrete.in_memory', 'main', NULL, NULL, NULL, array(0 => 'anonymous')));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($f, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider()), 'main', $a, ${($_ = isset($this->services['debug.event_dispatcher']) ? $this->services['debug.event_dispatcher'] : $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'}, $c), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '5ab970333aa001.35129566', $a, $d), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, ${($_ = isset($this->services['debug.security.access.decision_manager']) ? $this->services['debug.security.access.decision_manager'] : $this->getDebug_Security_Access_DecisionManagerService()) && false ?: '_'}, $f, $d)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $c, new \Symfony\Component\Security\Http\HttpUtils($e, $e), 'main', NULL, NULL, NULL, $a, false), new \Symfony\Bundle\SecurityBundle\Security\FirewallConfig('main', 'security.user_checker', NULL, true, false, 'security.user.provider.concrete.in_memory', 'main', NULL, NULL, NULL, array(0 => 'anonymous')));
     }
 
     /**
@@ -2534,7 +2543,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSession_HandlerService()
     {
-        return $this->services['session.handler'] = new \Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler(($this->targetDirs[3].'/var/sessions/dev'));
+        return $this->services['session.handler'] = new \Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler(($this->targetDirs[2].'/sessions/dev'));
     }
 
     /**
@@ -2781,7 +2790,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\ProfilerExtension(${($_ = isset($this->services['twig.profile']) ? $this->services['twig.profile'] : $this->get('twig.profile')) && false ?: '_'}, $a));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\TranslationExtension(${($_ = isset($this->services['translator']) ? $this->services['translator'] : $this->get('translator')) && false ?: '_'}));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\AssetExtension(${($_ = isset($this->services['assets.packages']) ? $this->services['assets.packages'] : $this->get('assets.packages')) && false ?: '_'}));
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension($b, ($this->targetDirs[3].'\\app'), 'UTF-8'));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension($b, ($this->targetDirs[3].'/app'), 'UTF-8'));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\RoutingExtension(${($_ = isset($this->services['router']) ? $this->services['router'] : $this->get('router')) && false ?: '_'}));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\YamlExtension());
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\StopwatchExtension($a, true));
@@ -2853,14 +2862,14 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['twig.loader'] = $instance = new \Symfony\Bundle\TwigBundle\Loader\FilesystemLoader(${($_ = isset($this->services['templating.locator']) ? $this->services['templating.locator'] : $this->getTemplating_LocatorService()) && false ?: '_'}, ${($_ = isset($this->services['templating.name_parser']) ? $this->services['templating.name_parser'] : $this->get('templating.name_parser')) && false ?: '_'}, $this->targetDirs[3]);
 
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views'), 'Framework');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views'), 'Security');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views'), 'Twig');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\swiftmailer-bundle/Resources/views'), 'Swiftmailer');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-bundle/Resources/views'), 'Doctrine');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\api-platform\\core\\src\\Bridge\\Symfony\\Bundle/Resources/views'), 'ApiPlatform');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\DebugBundle/Resources/views'), 'Debug');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views'), 'WebProfiler');
+        $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views'), 'Framework');
+        $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views'), 'Security');
+        $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views'), 'Twig');
+        $instance->addPath(($this->targetDirs[3].'/vendor/symfony/swiftmailer-bundle/Resources/views'), 'Swiftmailer');
+        $instance->addPath(($this->targetDirs[3].'/vendor/doctrine/doctrine-bundle/Resources/views'), 'Doctrine');
+        $instance->addPath(($this->targetDirs[3].'/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views'), 'ApiPlatform');
+        $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views'), 'Debug');
+        $instance->addPath(($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views'), 'WebProfiler');
 
         return $instance;
     }
@@ -2951,7 +2960,7 @@ class appDevDebugProjectContainer extends Container
         }))));
         $instance->setTranslator(${($_ = isset($this->services['translator']) ? $this->services['translator'] : $this->get('translator')) && false ?: '_'});
         $instance->setTranslationDomain('validators');
-        $instance->addXmlMappings(array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml')));
+        $instance->addXmlMappings(array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml')));
         $instance->enableAnnotationMapping(${($_ = isset($this->services['annotation_reader']) ? $this->services['annotation_reader'] : $this->get('annotation_reader')) && false ?: '_'});
         $instance->addMethodMapping('loadValidatorMetadata');
         $instance->addObjectInitializers(array(0 => ${($_ = isset($this->services['doctrine.orm.validator_initializer']) ? $this->services['doctrine.orm.validator_initializer'] : $this->get('doctrine.orm.validator_initializer')) && false ?: '_'}));
@@ -3045,23 +3054,23 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the private '1_de949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3' shared service.
+     * Gets the private '1_4a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ff' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker
      */
-    protected function get1De949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3Service()
+    protected function get14a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ffService()
     {
-        return $this->services['1_de949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3'] = new \Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker($this);
+        return $this->services['1_4a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ff'] = new \Symfony\Component\DependencyInjection\Config\ContainerParametersResourceChecker($this);
     }
 
     /**
-     * Gets the private '2_de949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3' shared service.
+     * Gets the private '2_4a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ff' shared service.
      *
      * @return \Symfony\Component\Config\Resource\SelfCheckingResourceChecker
      */
-    protected function get2De949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3Service()
+    protected function get24a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ffService()
     {
-        return $this->services['2_de949ce29b0251475d13d149f05d518bb6ace975b09bd21bce07240e6e45bdf3'] = new \Symfony\Component\Config\Resource\SelfCheckingResourceChecker();
+        return $this->services['2_4a3d9479dd88cc3689a000a3500afc4542a59ddbc4ef5e4596a156125d12d1ff'] = new \Symfony\Component\Config\Resource\SelfCheckingResourceChecker();
     }
 
     /**
@@ -3260,7 +3269,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_Annotations_RecorderInnerService($lazyLoad = true)
     {
-        return $this->services['cache.annotations.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('OeJZHgztwp', 0, '595d9YiuNoZBB7AbIy4l-Q', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
+        return $this->services['cache.annotations.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('kLuuKUhha6', 0, 'CFqOXf8qzt-SwleDAI+52G', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
     }
 
     /**
@@ -3270,7 +3279,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_App_RecorderInnerService($lazyLoad = true)
     {
-        $this->services['cache.app.recorder_inner'] = $instance = new \Symfony\Component\Cache\Adapter\FilesystemAdapter('eILaBZlale', 0, (__DIR__.'/pools'));
+        $this->services['cache.app.recorder_inner'] = $instance = new \Symfony\Component\Cache\Adapter\FilesystemAdapter('x+EgNqEVEq', 0, (__DIR__.'/pools'));
 
         if ($this->has('monolog.logger.cache')) {
             $instance->setLogger(${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
@@ -3296,7 +3305,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_Serializer_RecorderInnerService($lazyLoad = true)
     {
-        return $this->services['cache.serializer.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('KhvDucp-jW', 0, '595d9YiuNoZBB7AbIy4l-Q', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
+        return $this->services['cache.serializer.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('u73Q5+nGJH', 0, 'CFqOXf8qzt-SwleDAI+52G', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
     }
 
     /**
@@ -3306,7 +3315,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_System_RecorderInnerService($lazyLoad = true)
     {
-        return $this->services['cache.system.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('yQGyfmwPYX', 0, '595d9YiuNoZBB7AbIy4l-Q', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
+        return $this->services['cache.system.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('88WCtcbPMT', 0, 'CFqOXf8qzt-SwleDAI+52G', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
     }
 
     /**
@@ -3326,7 +3335,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_Validator_RecorderInnerService($lazyLoad = true)
     {
-        return $this->services['cache.validator.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('qKuSFpNpDm', 0, '595d9YiuNoZBB7AbIy4l-Q', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
+        return $this->services['cache.validator.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('cmCh+4EMoM', 0, 'CFqOXf8qzt-SwleDAI+52G', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
     }
 
     /**
@@ -3486,7 +3495,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_Provider_Anonymous_MainService()
     {
-        return $this->services['security.authentication.provider.anonymous.main'] = new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5aa86a94674580.99356945');
+        return $this->services['security.authentication.provider.anonymous.main'] = new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5ab970333aa001.35129566');
     }
 
     /**
@@ -3704,90 +3713,90 @@ class appDevDebugProjectContainer extends Container
     private function getDynamicParameter($name)
     {
         switch ($name) {
-            case 'kernel.root_dir': $value = ($this->targetDirs[3].'\\app'); break;
+            case 'kernel.root_dir': $value = ($this->targetDirs[3].'/app'); break;
             case 'kernel.project_dir': $value = $this->targetDirs[3]; break;
-            case 'kernel.logs_dir': $value = ($this->targetDirs[2].'\\logs'); break;
+            case 'kernel.logs_dir': $value = ($this->targetDirs[2].'/logs'); break;
             case 'kernel.bundles_metadata': $value = array(
                 'FrameworkBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle'),
                     'namespace' => 'Symfony\\Bundle\\FrameworkBundle',
                 ),
                 'SecurityBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle'),
                     'namespace' => 'Symfony\\Bundle\\SecurityBundle',
                 ),
                 'TwigBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle'),
                     'namespace' => 'Symfony\\Bundle\\TwigBundle',
                 ),
                 'MonologBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\monolog-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/monolog-bundle'),
                     'namespace' => 'Symfony\\Bundle\\MonologBundle',
                 ),
                 'SwiftmailerBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\swiftmailer-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/swiftmailer-bundle'),
                     'namespace' => 'Symfony\\Bundle\\SwiftmailerBundle',
                 ),
                 'DoctrineBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/doctrine/doctrine-bundle'),
                     'namespace' => 'Doctrine\\Bundle\\DoctrineBundle',
                 ),
                 'SensioFrameworkExtraBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\sensio\\framework-extra-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/sensio/framework-extra-bundle'),
                     'namespace' => 'Sensio\\Bundle\\FrameworkExtraBundle',
                 ),
                 'ApiPlatformBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\api-platform\\core\\src\\Bridge\\Symfony\\Bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/api-platform/core/src/Bridge/Symfony/Bundle'),
                     'namespace' => 'ApiPlatform\\Core\\Bridge\\Symfony\\Bundle',
                 ),
                 'NelmioCorsBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\nelmio\\cors-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/nelmio/cors-bundle'),
                     'namespace' => 'Nelmio\\CorsBundle',
                 ),
                 'AppBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\src\\AppBundle'),
+                    'path' => ($this->targetDirs[3].'/src/AppBundle'),
                     'namespace' => 'AppBundle',
                 ),
                 'DebugBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\DebugBundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle'),
                     'namespace' => 'Symfony\\Bundle\\DebugBundle',
                 ),
                 'WebProfilerBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle'),
                     'namespace' => 'Symfony\\Bundle\\WebProfilerBundle',
                 ),
                 'SensioDistributionBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\sensio\\distribution-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/sensio/distribution-bundle'),
                     'namespace' => 'Sensio\\Bundle\\DistributionBundle',
                 ),
                 'SensioGeneratorBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\sensio\\generator-bundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/sensio/generator-bundle'),
                     'namespace' => 'Sensio\\Bundle\\GeneratorBundle',
                 ),
                 'WebServerBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebServerBundle'),
+                    'path' => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Bundle/WebServerBundle'),
                     'namespace' => 'Symfony\\Bundle\\WebServerBundle',
                 ),
             ); break;
-            case 'session.save_path': $value = ($this->targetDirs[3].'/var/sessions/dev'); break;
+            case 'session.save_path': $value = ($this->targetDirs[2].'/sessions/dev'); break;
             case 'router.resource': $value = ($this->targetDirs[3].'/app/config/routing_dev.yml'); break;
             case 'api_platform.resource_class_directories': $value = array(
-                0 => ($this->targetDirs[3].'\\src\\AppBundle/Entity'),
+                0 => ($this->targetDirs[3].'/src/AppBundle/Entity'),
             ); break;
             default: throw new InvalidArgumentException(sprintf('The dynamic parameter "%s" must be defined.', $name));
         }
@@ -3828,11 +3837,11 @@ class appDevDebugProjectContainer extends Container
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => 'appDevDebugProjectContainer',
             'database_driver' => 'pdo_mysql',
-            'database_host' => 'https://databases.000webhost.com',
+            'database_host' => '127.0.0.1',
             'database_port' => 3306,
-            'database_name' => 'id5012420_itrib',
+            'database_name' => 'iTripApi',
             'database_user' => 'root',
-            'database_password' => 'itriptoor',
+            'database_password' => NULL,
             'mailer_transport' => 'smtp',
             'mailer_host' => '127.0.0.1',
             'mailer_user' => NULL,
